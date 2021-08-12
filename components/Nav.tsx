@@ -11,13 +11,13 @@ const Nav = () => {
 					<h2
 						className="last:pr-24 capitalize cursor-pointer transition duration-100 transform hover:scale-125 hover:text-white active:text-green-500"
 						key={key}
-						onClick={() => router.push(`/?genre=${key}`)}
+						onClick={() => router.push(`/?genre=${title.toLowerCase()}`)}
 					>
 						{title}
 					</h2>
 				))}
 			</div>
-			<div className="absolute top-0 right-0 bg-gradient-to-l from-[#06202A] h-10 w-1/12" />
+			<div className="absolute top-5 right-0 bg-gradient-to-l from-[#06202A] h-10 w-1/12" />
 		</nav>
 	);
 };
