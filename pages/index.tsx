@@ -1,9 +1,8 @@
 import type { NextPage, GetServerSideProps } from "next";
 import Head from "next/head";
-import Header from "../components/Header";
-import Nav from "../components/Nav";
 import MoviesList from "../components/MoviesList";
 import requests from "../utils/requests";
+import Nav from "../components/Nav";
 
 interface HomePagePorps {
 	results: any[];
@@ -17,8 +16,6 @@ const Home: NextPage<HomePagePorps> = ({ results }) => {
 				<meta name="description" content="movie database" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-
-			<Header />
 			<Nav />
 			<MoviesList results={results} />
 		</div>
@@ -34,6 +31,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			requests[genre as string]?.url || requests["trending"].url
 		}`
 	).then((res) => res.json());
+
 	return {
 		props: {
 			results: request?.results,
