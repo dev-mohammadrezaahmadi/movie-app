@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { GetServerSideProps } from "next";
 import CastList from "../components/CastList";
 import MovieInfo from "../components/MovieInfo";
@@ -15,6 +16,9 @@ interface MovieInfoProps {
 const Movie: React.FC<MovieInfoProps> = ({ movieInfo, movieCreditInfo }) => {
 	return (
 		<>
+			<Head>
+				<title>{movieInfo.original_title}</title>
+			</Head>
 			{movieInfo ? (
 				<div>
 					<MovieInfo
